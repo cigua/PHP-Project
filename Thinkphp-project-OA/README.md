@@ -16,4 +16,4 @@
 >4. 数据表的建立
 >5. 上传图片、缩略图
 
-[!image](https://github.com/accforgit/PHP-Project/blob/master/Thinkphp-project-OA/thinphp.png)
+![image](https://github.com/accforgit/PHP-Project/blob/master/Thinkphp-project-OA/thinphp.png)
