@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+    <head>
+        <title>分配权限</title>
+        <meta http-equiv="content-type" content="text/html;charset=utf-8">
+        <link href="{$smarty.const.ADMIN_CSS_URL}mine.css" type="text/css" rel="stylesheet">
+    </head>
+
+    <body>
+
+        <div class="div_head">
+            <span>
+                <span style="float:left">当前位置是：角色管理-》分配权限【{$role_info.role_name}】</span>
+                <span style="float:right;margin-right: 8px;font-weight: bold">
+                    <a style="text-decoration: none" href="{$smarty.const.__CONTROLLER__}/showlist">【返回】</a>
+                </span>
+            </span>
+        </div>
+        <div></div>
+
+        <div style="font-size: 13px;margin: 10px 5px">
+            <form action="{$smarty.const.__SELF__}" method="post">
+                <table border="1" width="100%" class="table_a">
+                    {foreach $auth_infoA as $k=>$v}
+                    <tr>
+                        <td width='18%'>
+                            <!--想要在后台接收到表单的数组，必须加中括号 []-->
+                            <input type="checkbox" name="auth_id[]" value="{$v.auth_id}" {if in_array($v.auth_id,$have_auth)}checked='checked'{/if}>
+                            {$v.auth_name}
+                        </td>
+                        <td>
+                            {foreach $auth_infoB as $kk=>$vv}
+                            {if $vv.auth_pid===$v.auth_id}
+                            <div style='width:200px;float:left'>
+                                <input type="checkbox" name="auth_id[]" value="{$vv.auth_id}" {if in_array($vv.auth_id,$have_auth)}checked='checked'{/if}>
+                                {$vv.auth_name}
+                            </div>
+                            {/if}
+                            {/foreach}
+                        </td>
+                    </tr>
+                    {/foreach}
+                </table>
+                <input type="submit" value='分配权限'>
+            </form>
+        </div>
+    </body>
+</html>
